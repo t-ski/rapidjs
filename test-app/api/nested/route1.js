@@ -1,1 +1,0 @@
-export const CONSTANT = "value1.1";

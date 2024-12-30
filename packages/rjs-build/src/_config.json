@@ -1,7 +1,0 @@
-{
-    "buildConfigCommandKeyName": "cmd",
-    "buildConfigCommandPublicToken": "@PUBLIC",
-    "buildConfigNames": [ "__rjs.plugin", "__plugin" ],
-    "buildModuleNames": [ "__rjs.plugin", "__plugin" ],
-    "buildModuleReferenceKey": "package"
-}

@@ -1,45 +1,29 @@
 {
-	"private": true,
-	"author": "Thassilo Martin Schiepanski",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/rapidjs-org/rjs.git"
-    },
-	"workspaces": [
-		"./packages/*"
-	],
-	"scripts": {
-		"prepare": "npx husky",
-		"clean:buildinfo": "find ./packages -name 'tsconfig.debug.tsbuildinfo' -delete",
-		"clean:builds": "find ./packages -type d -name 'build' -exec rm -rf {} \\;",
-		"clean:logs": "rm -rf ./test-app/.logs",
-		"clean": "npm run clean:buildinfo && npm run clean:builds && npm run clean:logs",
-		"debug": "node ./scripts/exec-deps.js debug",
-		"build": "node ./scripts/exec-deps.js build",
-		"test": "node ./scripts/exec-deps.js test",
-		"test-app:soft": "node ./test-app/app",
-		"test-app:http": "./packages/rjs/rjs.sh serve -W ./test-app",
-		"test-app:https": "./packages/rjs/rjs.sh serve -W ./test-app --tls-key ./test-app/_tls/key.pem --tls-cert ./test-app/_tls/cert.pem",
-		"test-app": "npm run test-app:http",
-		"lint": "npx eslint './packages/*/src/**/*.ts' --ignore-pattern '**/.shared/'",
-		"lint:fix": "npm run lint -- --fix",
-		"format": "npx prettier --check './packages/*/src/**/*.ts'",
-		"format:fix": "npx prettier --write './packages/*/src/**/*.ts'",
-		"benchmark": "node ./scripts/benchmark.js",
-		"prerelease": "npm run build && npm run test",
-		"release": "npx rjs-releasing . --github"
-	},
-	"devDependencies": {
-		"@rapidjs.org/releasing": "0.x",
-		"@eslint/js": "^9.2.0",
-		"@typescript-eslint/eslint-plugin": "^7.8.0",
-		"@typescript-eslint/parser": "^7.8.0",
-		"eslint": "^8.57.0",
-		"eslint-plugin-typescript": "^0.14.0",
-		"husky": "^9.0.11",
-		"lint-staged": "^15.2.2",
-		"loadtest": "^8.0.9",
-		"prettier": "^3.2.5",
-		"typescript-eslint": "^7.8.0"
-	}
+  "private": true,
+  "author": "Thassilo Martin Schiepanski",
+  "workspaces": [ "./packages/*" ],
+  "scripts": {
+    "prepare": "npx husky",
+	"clean:buildinfo": "find ./packages -name 'tsconfig.debug.tsbuildinfo' -delete",
+	"clean:builds": "find ./packages -type d -name 'build' -exec rm -rf {} \\;",
+	"clean:logs": "rm -rf ./test-app/.logs",
+	"clean": "npm run clean:buildinfo && npm run clean:builds && npm run clean:logs",
+	"debug": "node ./scripts/exec-deps.js debug",
+	"build": "node ./scripts/exec-deps.js build",
+	"lint": "npm -ws --if-present lint",
+	"format": "npm -ws --if-present format",
+	"test": "npm -ws --if-present test",
+	"prerelease": "npm run test && npm run build",
+	"release": "npx rjs-releasing . --github"
+  },
+  "devDependencies": {
+    "@rapidjs.org/releasing": "0.x",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "loadtest": "^8.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rapidjs-org/rjs.git"
+  }
 }

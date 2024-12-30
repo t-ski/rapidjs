@@ -8,6 +8,7 @@
         "resolveJsonModule": true,
         "noEmitOnError": true,
         "allowJs": true,
-        "declaration": true
+        "declaration": true,
+        "removeComments": true
     }
 }

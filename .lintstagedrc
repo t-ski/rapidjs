@@ -1,6 +1,0 @@
-{
-    "./packages/*/src/**/*.ts": [
-        "npx eslint --fix",
-        "npx prettier --write"
-    ]
-}

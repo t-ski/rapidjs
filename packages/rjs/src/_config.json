@@ -1,8 +1,0 @@
-{
-    "apiDirName": "api",
-    "configName": "rjs.config",
-    "cliProcessTitle": "rJS",
-    "deployConfigName": "rjs.deploy",
-    "pluginDirName": "src",
-    "publicDirName": "public"
-}

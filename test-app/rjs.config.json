@@ -1,8 +1,0 @@
-{
-    "security": {
-        "maxRequestHeadersLength": 500
-    },
-    "performance": {
-        "compressionByteThreshold": 999
-    }
-}

@@ -1,4 +1,2 @@
-export { EBuildFilter, Build } from "./Build";
-
-export { Directory } from "./Directory";
-export { File } from "./File";
+export * from "./fs/Directory.ts";
+export * from "./fs/File.ts";
